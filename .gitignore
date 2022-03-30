@@ -1,7 +1,8 @@
 # Manual
-raw_data/
+data/
 int_res/
 results/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
