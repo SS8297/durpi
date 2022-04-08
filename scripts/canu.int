@@ -1,0 +1,8 @@
+#!/bin/bash -l
+module  load bioinfo-tools canu
+cd $SNIC_TMP
+rm -r ./*
+cp ~/genome_analysis/durpi/data/pacbio_data/SRR6037732_scaffold_11.fq.gz $SNIC_TMP/SRR6037732_scaffold_11.fq.gz 
+mkdir ./assembly
+canu -p durian-pacbio -d assembly/ genomeSize=20m useGrid=False -pacbio-raw ./SRR6037732_scaffold_11.fq.gz && cp -r assembly  ~/genome_analysis/durpi/results/assembly/canu
+cd ~/genome_analysis/durpi/scripts

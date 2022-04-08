@@ -2,6 +2,7 @@
 data/
 int_res/
 results/
+script/augustus_config/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

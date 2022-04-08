@@ -1,0 +1,10 @@
+rm: cannot remove ‘/home/shuai/genome_analysis/durpi/results/trimmomatic/’: No such file or directory
+rm: cannot remove ‘./*’: No such file or directory
+TrimmomaticPE: Started with arguments:
+ -threads 4 -summary summary.txt SRR6040095_scaffold_11.1.fastq.gz SRR6040095_scaffold_11.1.fastq.gz -baseout trimmomatic/SRR6040095_scaffold_11.fastq.gz ILLUMINACLIP:/sw/bioinfo/trimmomatic/0.39/snowy/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+Using templated Output files: trimmomatic/SRR6040095_scaffold_11_1P.fastq.gz trimmomatic/SRR6040095_scaffold_11_1U.fastq.gz trimmomatic/SRR6040095_scaffold_11_2P.fastq.gz trimmomatic/SRR6040095_scaffold_11_2U.fastq.gz
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 1494547 Both Surviving: 1494035 (99.97%) Forward Only Surviving: 5 (0.00%) Reverse Only Surviving: 0 (0.00%) Dropped: 507 (0.03%)
+TrimmomaticPE: Completed successfully
