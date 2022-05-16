@@ -11,7 +11,7 @@
 
 module load bioinfo-tools trimmomatic
 
-rm -r ~/genome_analysis/durpi/results/trimmomatic/
+rm -r ~/genome_analysis/durpi/results/assembly/trimmomatic/
 cd $SNIC_TMP
 rm -r ./*
 cp ~/genome_analysis/durpi/data/transcriptome/untrimmed/SRR6040095_scaffold_11.* $SNIC_TMP/

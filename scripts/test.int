@@ -1,0 +1,3 @@
+declare path=~/genome_analysis/durpi/results/assembly/repeatmasker/pilon.fasta.masked
+name= basename ${path%%.*}
+echo $name

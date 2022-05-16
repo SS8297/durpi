@@ -1,0 +1,38 @@
+#!/bin/bash -l
+module load bioinfo-tools star
+rm -r ~/genome_analysis/durpi/results/assembly/star/
+cd $SNIC_TMP
+rm -r ./*
+cp ~/genome_analysis/durpi/results/assembly/trimmomatic/*P.fastq.gz $SNIC_TMP/
+cp ~/genome_analysis/durpi/data/transcriptome/trimmed/*_11.* $SNIC_TMP/
+cp ~/genome_analysis/durpi/results/assembly/repeatmasker/pilon.fasta.masked $SNIC_TMP/
+
+mkdir star/
+star --runThreadN 4 \
+--runMode genomeGenerate \
+--genomeDir star/ \
+--genomeFastaFiles pilon.fasta.masked \
+--genomeSAindexNbases 11
+
+declare n=0
+declare pairedReads=""
+for file in *.fastq.gz;
+do
+	declare pairedReads="$pairedReads $file"
+        if [ $n -eq 1 ];
+        then
+        echo "$pairedReads"
+        declare n=0
+        star --runThreadN 4 \
+        --genomeDir star/ \
+        --genomeFastaFiles pilon.fasta.masked \
+        --outSAMtype BAM SortedByCoordinate \
+	--readFilesCommand zcat \
+        --readFilesIn $pairedReads
+        declare pairedReads=""
+        else
+        declare n=1
+	fi
+done
+cp -r star/  ~/genome_analysis/durpi/results/assembly/star/
+cd ~/genome_analysis/durpi/scripts

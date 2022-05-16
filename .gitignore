@@ -2,7 +2,8 @@
 data/
 int_res/
 results/
-script/augustus_config/
+scripts/augustus_config/
+scripts/slurm*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

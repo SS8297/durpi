@@ -1,0 +1,15 @@
+#!/bin/bash -l
+module  load bioinfo-tools bwa samtools
+rm -r ~/genome_analysis/durpi/results/bwa
+cd $SNIC_TMP
+rm -r ./*
+cp ~/genome_analysis/durpi/results/assembly/canu/durian-pacbio.contigs.fasta $SNIC_TMP/
+cp /home/shuai/genome_analysis/durpi/data/illumina_data/*_11.* $SNIC_TMP/
+mkdir bwa
+bwa index durian-pacbio.contigs.fasta
+bwa mem -t 4 durian-pacbio.contigs.fasta SRR6058604_scaffold_11.1P.fastq.gz SRR6058604_scaffold_11.2P.fastq.gz > bwa/dur_mem.sam
+samtools view -bS bwa/dur_mem.sam > bwa/dur_mem.bam
+samtools sort bwa/dur_mem.bam -o bwa/durs_mem.bam
+samtools index bwa/durs_mem.bam bwa/durs_mem.bai
+cp -r bwa/  ~/genome_analysis/durpi/results/assembly/bwa/
+cd ~/genome_analysis/durpi/scripts

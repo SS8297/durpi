@@ -1,0 +1,10 @@
+#!/bin/bash -l
+module  load bioinfo-tools quast
+rm -r ~/genome_analysis/durpi/results/assembly/quast/
+cd $SNIC_TMP
+rm -r ./*
+cp ~/genome_analysis/durpi/results/assembly/pilon/pilon.fasta $SNIC_TMP/
+mkdir quast/
+python /sw/bioinfo/quast/5.0.2/snowy/bin/quast.py -o quast/ -t 4 -e pilon.fasta
+cp -r quast/  ~/genome_analysis/durpi/results/assembly/quast/
+cd ~/genome_analysis/durpi/scripts

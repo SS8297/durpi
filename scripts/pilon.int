@@ -1,0 +1,12 @@
+#!/bin/bash -l
+module  load bioinfo-tools Pilon
+rm -r ~/genome_analysis/durpi/results/pilon
+cd $SNIC_TMP
+rm -r ./*
+cp ~/genome_analysis/durpi/results/assembly/canu/durian-pacbio.contigs.fasta $SNIC_TMP/
+cp ~/genome_analysis/durpi/results/assembly/bwa/durs_mem.bam $SNIC_TMP/
+cp ~/genome_analysis/durpi/results/assembly/bwa/durs_mem.bai $SNIC_TMP/
+mkdir pilon
+java -jar $PILON_HOME/pilon.jar --genome durian-pacbio.contigs.fasta --bam durs_mem.bam --threads 4 --outdir pilon/
+cp -r pilon/  ~/genome_analysis/durpi/results/assembly/pilon/
+cd ~/genome_analysis/durpi/scripts

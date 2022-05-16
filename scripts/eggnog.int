@@ -1,0 +1,10 @@
+#!/bin/bash -l
+module load bioinfo-tools eggNOG-mapper
+rm -r ~/genome_analysis/durpi/results/assembly/eggnog/
+cd $SNIC_TMP
+rm -r ./*
+cp ~/genome_analysis/durpi/results/assembly/repeatmasker/pilon.fasta.masked $SNIC_TMP/
+mkdir eggnog/
+python /sw/bioinfo/eggNOG-mapper/2.1.5/snowy/bin/emapper.py --cpu 4 -i pilon.fasta.masked --itype genome --output_dir eggnog/ -o durpi
+cp -r eggnog/  ~/genome_analysis/durpi/results/assembly/eggnog/
+cd ~/genome_analysis/durpi/scripts

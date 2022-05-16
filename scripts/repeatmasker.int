@@ -1,0 +1,10 @@
+#!/bin/bash -l
+module load bioinfo-tools RepeatMasker
+rm -r ~/genome_analysis/durpi/results/assembly/repeatmasker
+cd $SNIC_TMP
+rm -r ./*
+cp ~/genome_analysis/durpi/results/assembly/pilon/pilon.fasta $SNIC_TMP/
+mkdir repeatmasker
+RepeatMasker -species Malvaceae -dir repeatmasker pilon.fasta
+cp -r repeatmasker/  ~/genome_analysis/durpi/results/assembly/repeatmasker/
+cd ~/genome_analysis/durpi/scripts
