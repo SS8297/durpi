@@ -1,0 +1,20 @@
+#!/bin/bash -l
+
+module load bioinfo-tools trinity
+
+rm -r ~/genome_analysis/durpi/results/assembly/trinity/
+cd $SNIC_TMP
+rm -r ./*
+cp ~/genome_analysis/durpi/results/assembly/trimmomatic/*P.fastq.gz $SNIC_TMP/
+cp ~/genome_analysis/durpi/data/transcriptome/trimmed/*_11.* $SNIC_TMP/
+cp /home/shuai/genome_analysis/durpi/scripts/samples.tsv $SNIC_TMP/
+mkdir trinity/
+
+for bam in *Aligned.sortedByCoord.out.bam;
+do
+Trinity --seqType fq --samples_file samples.tsv --max_memory 32G --CPU 4 --output trinity/ &
+done
+wait
+
+cp -r trinity/  ~/genome_analysis/durpi/results/assembly/trinity/
+cd ~/genome_analysis/durpi/scripts

@@ -13,11 +13,10 @@ module load bioinfo-tools htseq samtools
 
 rm -r ~/genome_analysis/durpi/results/assembly/htseq/
 cd $SNIC_TMP
-rm -r ./*
-cp ~/genome_analysis/durpi/results/assembly/star/*Aligned.sortedByCoord.out.bam $SNIC_TMP/
-cp ~/genome_analysis/durpi/results/assembly/braker/augustus.hints.gff3  $SNIC_TMP/
-
-mkdir htseq/
+mkdir htseq
+cd htseq
+cp ~/genome_analysis/durpi/results/assembly/star/*Aligned.sortedByCoord.out.bam .
+cp ~/genome_analysis/durpi/results/assembly/braker/augustus.hints.gff3 .
 
 for bam in *.bam;
 do
@@ -28,5 +27,6 @@ wait
 
 rm *.bam
 rm *.bai
-cp -p ./*  ~/genome_analysis/durpi/results/assembly/htseq/
+cd ..
+cp -rp htseq/  ~/genome_analysis/durpi/results/assembly/
 cd ~/genome_analysis/durpi/scripts

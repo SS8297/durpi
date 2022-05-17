@@ -37,8 +37,7 @@ do
         star --runThreadN 16 \
 	--runMode alignReads \
         --genomeDir star/ \
-        --genomeFastaFiles pilon.fasta.masked \
-        --outSAMtype SAM \
+        --outSAMtype BAM SortedByCoordinate \
 	--outFileNamePrefix star/$bName \
 	--readFilesCommand zcat \
         --readFilesIn $pairedReads &

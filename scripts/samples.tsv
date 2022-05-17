@@ -1,0 +1,9 @@
+M_Leaf	M_Leaf_1	SRR6040092_scaffold_11.1.fastq.gz	SRR6040092_scaffold_11.2.fastq.gz
+M_Stem	M_Stem_1	SRR6040096_scaffold_11.1.fastq.gz	SRR6040096_scaffold_11.2.fastq.gz
+M_Root	M_Root_1	SRR6040093_scaffold_11.1.fastq.gz	SRR6040093_scaffold_11.2.fastq.gz
+M_Aril	M_Aril_1	SRR6040095_scaffold_11_1P.fastq.gz	SRR6040095_scaffold_11_2P.fastq.gz
+M_Aril	M_Aril_2	SRR6040094_scaffold_11.1.fastq.gz	SRR6040094_scaffold_11.2.fastq.gz
+M_Aril	M_Aril_3	SRR6040097_scaffold_11.1.fastq.gz	SRR6040097_scaffold_11.2.fastq.gz
+K_Aril	K_Aril_1	SRR6156069_scaffold_11.1.fastq.gz	SRR6156069_scaffold_11.2.fastq.gz
+K_Aril	K_Aril_2	SRR6156066_scaffold_11.1.fastq.gz	SRR6156066_scaffold_11.2.fastq.gz
+
